@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SEJAUNG / OPULENX — Executive Dashboard</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script>
+        // Automatically switch to a compact layout when the dashboard is embedded
+        // inside Notion or another iframe. Full-page visitors keep the spacious layout.
+        try {
+            if (window.self !== window.top) {
+                document.documentElement.classList.add('embedded');
+            }
+        } catch (e) {
+            document.documentElement.classList.add('embedded');
+        }
+    </script>
     <style>
         * {
             margin: 0;
@@ -330,6 +341,93 @@
         }
 
         /* Responsive */
+        /* Compact mode for Notion / iframe embedding */
+        html.embedded body {
+            background: var(--surface-0);
+            overflow-x: hidden;
+        }
+
+        html.embedded .dashboard {
+            max-width: none;
+            width: 100%;
+            padding: 0.75rem;
+        }
+
+        html.embedded .header {
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+        }
+
+        html.embedded .header h1 {
+            font-size: 24px;
+        }
+
+        html.embedded .header-subtitle {
+            margin-bottom: 0.25rem;
+        }
+
+        html.embedded .kpi-grid {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 10px;
+            margin-bottom: 1rem;
+        }
+
+        html.embedded .kpi-card {
+            padding: 1rem;
+        }
+
+        html.embedded .kpi-value {
+            font-size: 22px;
+        }
+
+        html.embedded .charts-title {
+            margin: 1rem 0 0.75rem;
+        }
+
+        html.embedded .chart-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin-bottom: 1rem;
+        }
+
+        html.embedded .chart-container {
+            padding: 1rem;
+        }
+
+        html.embedded .chart-wrapper {
+            height: 230px;
+        }
+
+        html.embedded .status-section {
+            margin-bottom: 1rem;
+        }
+
+        html.embedded .status-table-header,
+        html.embedded .status-table-content {
+            padding: 0.85rem 1rem;
+        }
+
+        html.embedded .project-item,
+        html.embedded .claim-row {
+            padding: 0.65rem 0;
+        }
+
+        html.embedded .footer {
+            padding: 1rem 0.5rem;
+            margin-top: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            html.embedded .kpi-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            html.embedded .chart-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             .chart-grid {
                 grid-template-columns: 1fr;
