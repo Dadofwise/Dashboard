@@ -12,7 +12,7 @@ Professional financial & project management dashboard for Sejaung Enterprise.
 ## 🔗 Embed in Notion
 
 Paste this URL in Notion Embed block:
-`https://Dadofwise.github.io/dashboard/`
+`https://Dadofwise.github.io/Dashboard/`
 
 ## 📄 More Info
 
